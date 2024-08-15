@@ -8,10 +8,19 @@ spring:
       multipart:
         max-file-size: 5MB
         max-request-size: 5MB
+#  datasource:
+#    url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/online_store_exporter?stringtype=unspecified}
+#    username: ${JDBC_DATABASE_USERNAME:postgres}
+#    password: ${JDBC_DATABASE_PASSWORD:root}
   datasource:
-    url: jdbc:postgresql://localhost:5432/online_store_exporter?stringtype=unspecified
-    username: postgres
-    password: root
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
   jpa:
     show-sql: true
     hibernate:
